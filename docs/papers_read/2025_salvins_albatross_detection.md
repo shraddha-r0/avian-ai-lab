@@ -44,7 +44,7 @@ Key factors:
 
 ## 4. Key Findings
 - Zero-shot BirdDetector works *but* misses many birds.  
-- SAHI dramatically improves detection of tiny birds.  
+- SAHI dramatically improves detection of tiny birds,
 - Fine-tuning boosts recall significantly.  
 - Fine-tuning + SAHI = best overall model.  
 - False positives come from rocks, shadows, and penguins.  
@@ -53,11 +53,21 @@ Key factors:
 ---
 
 ## 5. Technical Takeaways for My Work
-- SAHI is extremely useful for drone imagery.  
+- SAHI improves small-object detection in huge drone images by slicing the image into smaller tiles, running detection on each tile, then stitching the results back together. This makes tiny birds appear larger relative to the input size, letting the model detect them more reliably.SAHI is extremely useful for drone imagery. Because:
+    - orthomosaics are HUGE
+    - birds are TINY
+    - BirdDetector is NOT a multi-scale model like YOLOv8
+    - RetinaNet really struggles with tiny objects
+    - SAHI rescues the detector.
+    In the paper, SAHI:
+    - increased recall
+    - found more birds
+    - improved F1
+    - reduced missed detections
 - Fine-tuning requires careful augmentations to simulate habitat variation.  
-- Noisy pseudo-labels → use lower IoU thresholds.  
 - LOIOCV is a strong strategy for ecological generalization.  
-- Background complexity matters as much as the model.
+- Background complexity matters as much as the model. Using all tiles introduces habitat representation bias: islands with more tiles influence the model disproportionately, leading to uneven learning of background patterns. However, because ecological datasets are naturally imbalanced, this choice provides a realistic test of model performance in practical deployment scenarios.
+- Noisy pseudo-labels → use lower IoU thresholds: The evaluation thresholds were intentionally loosened because both the dataset and the labeling method introduce unavoidable noise. Low IoU and confidence thresholds improve recall, while the extremely low NMS threshold prevents double-counting birds in overlapping slices. This balanced strategy respects ecological priorities: undercounts are far worse than occasional false positives.
 
 ---
 
