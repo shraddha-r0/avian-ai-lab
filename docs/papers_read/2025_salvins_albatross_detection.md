@@ -53,17 +53,13 @@ Key factors:
 ---
 
 ## 5. Technical Takeaways for My Work
-- SAHI improves small-object detection in huge drone images by slicing the image into smaller tiles, running detection on each tile, then stitching the results back together. This makes tiny birds appear larger relative to the input size, letting the model detect them more reliably.SAHI is extremely useful for drone imagery. Because:
+- SAHI improves small-object detection in huge drone images by slicing the image into smaller tiles, running detection on each tile, then stitching the results back together. This makes tiny birds appear larger relative to the input size, letting the model detect them more reliably. In the paper, SAHI increased recall, found more birds, improved F1, and reduced missed detections. SAHI is extremely useful for drone imagery, because:
     - orthomosaics are HUGE
     - birds are TINY
     - BirdDetector is NOT a multi-scale model like YOLOv8
     - RetinaNet really struggles with tiny objects
     - SAHI rescues the detector.
-    In the paper, SAHI:
-    - increased recall
-    - found more birds
-    - improved F1
-    - reduced missed detections
+    
 - Fine-tuning requires careful augmentations to simulate habitat variation.  
 - LOIOCV is a strong strategy for ecological generalization.  
 - Background complexity matters as much as the model. Using all tiles introduces habitat representation bias: islands with more tiles influence the model disproportionately, leading to uneven learning of background patterns. However, because ecological datasets are naturally imbalanced, this choice provides a realistic test of model performance in practical deployment scenarios.
