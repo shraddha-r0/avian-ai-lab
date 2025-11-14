@@ -1,4 +1,6 @@
-# Automated Detection of Salvin’s Albatrosses (2025) — Notes
+# Automated Detection of Salvin's Albatrosses (2025) — Notes
+
+📄 **Paper**: [arXiv:2505.10737](https://arxiv.org/abs/2505.10737)
 
 ## 1. What Problem Is This Paper Solving?
 - Manual counting of seabirds from drone imagery is extremely time-consuming.  
