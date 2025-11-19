@@ -143,7 +143,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-lab-env/
+birdlab-env/
 
 # Spyder project settings
 .spyderproject
@@ -210,3 +210,6 @@ __marimo__/
 data/
 */data/
 **/data/
+
+
+*.DS_Store
