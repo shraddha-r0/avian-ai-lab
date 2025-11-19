@@ -1,6 +1,25 @@
-transformers>=4.36
-datasets
-pillow
-opencv-python
-torch
-sahi
+# Core ML
+torch>=2.1.0
+torchvision>=0.16.0
+torchaudio>=2.1.0
+
+# Hugging Face
+transformers>=4.38.0
+huggingface_hub>=0.21.0
+datasets>=2.16.0
+
+# Object detection models
+ultralytics>=8.0.100
+
+# SAHI slicing (tiny object detection)
+sahi==0.11.35
+
+# Image utilities
+opencv-python>=4.8.0.76
+pillow>=10.0.0
+numpy==1.26.4
+matplotlib>=3.8.0
+
+# Notebook
+jupyter
+notebook
