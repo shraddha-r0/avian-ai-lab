@@ -1,0 +1,13 @@
+torch
+torchvision
+deepforest
+sahi
+opencv-python
+pillow
+matplotlib
+numpy
+pandas
+pycocotools
+tqdm
+jupyter
+scikit-learn

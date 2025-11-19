@@ -59,7 +59,6 @@ Key factors:
     - BirdDetector is NOT a multi-scale model like YOLOv8
     - RetinaNet really struggles with tiny objects
     - SAHI rescues the detector.
-    
 - Fine-tuning requires careful augmentations to simulate habitat variation.  
 - LOIOCV is a strong strategy for ecological generalization.  
 - Background complexity matters as much as the model. Using all tiles introduces habitat representation bias: islands with more tiles influence the model disproportionately, leading to uneven learning of background patterns. However, because ecological datasets are naturally imbalanced, this choice provides a realistic test of model performance in practical deployment scenarios.
